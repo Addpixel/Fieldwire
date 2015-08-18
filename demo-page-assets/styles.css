@@ -1,0 +1,148 @@
+html {
+	font: 100%/1.5 sans-serif;
+}
+
+body {
+	margin: 1em;
+}
+
+header,
+main,
+footer {
+	display: block;
+	max-width: 45em;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+header {
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+h1 {
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
+h2 {
+	font-size: 1.2em;
+	margin-top: 0;
+}
+
+h3 {
+	font-size: 1.5em;
+	padding-bottom: 0.25em;
+	border-bottom: 1px solid #ccc;
+}
+
+a {
+	color: #df2040;
+	text-decoration: none;
+}
+
+#ribbon {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+figure {
+	text-align: center;
+	padding: 1em;
+	background-color: #eee;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+figure img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+figcaption {
+	margin-top: 1em;
+}
+
+pre {
+	padding: 1em;
+	background-color: #eee;
+}
+
+code {
+	font: 90%/1.25 Menlo, Monaco, monospace;
+}
+
+p code,
+figcaption code {
+	padding: 0.1em 0.3em;
+	background-color: rgba(0, 0, 0, 0.075);
+}
+
+.operator {
+	color: #df2040;
+}
+
+footer {
+	text-align: center;
+	margin-top: 4em;
+	margin-bottom: 6em;
+}
+
+/* form-element */
+
+.InputfieldHeaderHidden {
+	display: none;
+}
+
+.InputfieldFieldset {
+	padding: 1em;
+	box-shadow: 0 1px 3px #aaa;
+	margin: 1em 0;
+}
+
+.InputfieldFieldset > label {
+	display: block;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 0.5em;
+}
+
+.Inputfield {
+	margin-top: 1em;
+}
+
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+input[type=text],
+input[type=number],
+input[type=url],
+input[type=email],
+textarea {
+	max-width: 400px;
+	width: 100%;
+	padding: 0.25em 0.5em;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	outline: none;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=url]:focus,
+input[type=email]:focus {
+	border-color: #777;
+}
+
+textarea {
+	box-sizing: border-box;
+	max-width: initial;
+}

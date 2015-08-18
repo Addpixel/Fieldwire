@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<title>Fieldwire – Conditional Input-Fields for Processwire Frontend without jQuery UI</title>
+	<link rel="stylesheet" href="demo-page-assets/styles.css" type="text/css">
+	
+	<header>
+		<hgroup>
+			<h1>Fieldwire</h1>
+			<h2>Conditional Input-Fields for Processwire Frontend without&nbsp;jQuery&nbsp;UI</h2>
+		</hgroup>
+	</header>
+	
+	<a href="https://github.com/addpixel/Fieldwire" id="ribbon">Fieldwire on GitHib</a>
+	
+	<main>
+		<p>Fieldwire is a replacement for <a href="http://processwire.com/api/selectors/inputfield-dependencies/" title="Inputfield Dependencies">Processwires Inputfield Dependencies</a>. It supports all <a href="http://processwire.com/api/selectors/inputfield-dependencies/#operators">comparison-operators used by Processwire</a> (<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>%=</code> and <code>*=</code>). Adding custom operators to Fieldwire couldn’t be easier and so I’ve already added the <code>~=</code> operator (left hand side matches a regular expression).</p>
+	
+		<figure>
+			<img src="demo-page-assets/operators.png" width="526" height="29" alt="var operators = [&#x27;=&#x27;, &#x27;!=&#x27;, …">
+			<figcaption>First add your operator to this array …</figcaption>
+		</figure>
+	
+		<figure>
+			<img src="demo-page-assets/comparison-function.png" width="572" height="181" alt="function evaluateOperatorWithValues(operator, v0, v1) { switch (operator) { case '=': return v0 == v1; …">
+			<figcaption>… than implement it in <code>evaluateOperatorWithValues</code></figcaption>
+		</figure>
+	
+		<p>Fieldwire also introduces field modifiers which transform the value of a field. Modifiers are written using the dot-notation (<code>fieldname.modifiername</code>). Currently Fieldwire offers the <code>lowercase</code>, <code>uppercase</code> and the <code>length</code> modifiers and you can add your own modifiers with just two lines of code.</p>
+	
+		<figure>
+			<img src="demo-page-assets/modifiers.png" width="301" height="220" alt="/* Add your own modifier here! */ switch (field.conditions.modifier) { case 'lowercase': value = value.toLowerCase(); …">
+			<figcaption>Search for this snippet in fieldwire.js and add your own modifiers.</figcaption>
+		</figure>
+	
+		<h3>Examples</h3>
+<pre><code>age<span class="operator">&gt;=</span>18
+email<span class="operator">*=</span>@gmail.com
+textfield<span class="operator">!=</span>&#x27;&#x27;
+file_input<span class="operator">~=</span>^.*\.(jpg|jpeg|png|gif)$
+username.length<span class="operator">&gt;</span>15</code></pre>
+	
+		<h3>Live Demo</h3>
+	
+		<form id="FormBuilder_bewerber_formular" class=" FormBuilderFrameworkLegacy FormBuilder InputfieldNoFocus InputfieldFormWidths InputfieldForm" name="bewerber_formular" method="post" action="./" data-colspacing="1"><div class="Inputfields"><div class="Inputfield Inputfield_text_field ui-widget InputfieldText" id="wrap_Inputfield_text_field"><label class="ui-widget-header" for="Inputfield_text_field">Text Field<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+				<input id="Inputfield_text_field" class="InputfieldMaxWidth" name="text_field" type="text" maxlength="2048" placeholder="enter some text…"></div>
+			</div><div class="Inputfield Inputfield_fieldset ui-widget InputfieldFieldset InputfieldStateShowIf" data-show-if="text_field!=''" id="Inputfield_fieldset" style="display: none;"><label class="ui-widget-header" for="">Fieldset<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content"><div class="Inputfields"><div class="Inputfield Inputfield_radio_buttons ui-widget InputfieldRadios" id="wrap_Inputfield_radio_buttons"><label class="ui-widget-header" for="Inputfield_radio_buttons">Radio Buttons<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+				<ul class="InputfieldRadiosStacked">
+					<li><label><input checked="checked" type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Red" value="Red"><span class="pw-no-select">Red</span></label></li>
+					<li><label><input type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Orange" value="Orange"><span class="pw-no-select">Orange</span></label></li>
+					<li><label><input type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Yellow" value="Yellow"><span class="pw-no-select">Yellow</span></label></li>
+					<li><label><input type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Green" value="Green"><span class="pw-no-select">Green</span></label></li>
+					<li><label><input type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Blue" value="Blue"><span class="pw-no-select">Blue (try me!)</span></label></li>
+					<li><label><input type="radio" name="radio_buttons" id="Inputfield_radio_buttons_Violet" value="Violet"><span class="pw-no-select">Violet</span></label></li>
+				</ul></div>
+			</div><div class="Inputfield Inputfield_shade_of_blue ui-widget InputfieldRadios InputfieldStateShowIf" data-show-if="radio_buttons=Blue" id="wrap_Inputfield_shade_of_blue" style="display: none;"><label class="ui-widget-header" for="Inputfield_shade_of_blue">Shade of Blue<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+				<ul class="InputfieldRadiosStacked">
+					<li><label><input checked="checked" type="radio" name="shade_of_blue" id="Inputfield_shade_of_blue_Light_Blue" value="Light Blue" disabled=""><span class="pw-no-select">Light Blue</span></label></li>
+					<li><label><input type="radio" name="shade_of_blue" id="Inputfield_shade_of_blue_Dark_Blue" value="Dark Blue" disabled=""><span class="pw-no-select">Dark Blue</span></label></li>
+				</ul></div>
+			</div><div class="Inputfield Inputfield_checkbox ui-widget InputfieldCheckbox" id="wrap_Inputfield_checkbox">
+				<label class="InputfieldHeader InputfieldHeaderHidden ui-widget-header"><span>Checkbox<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></span></label><div class="ui-widget-content">
+					<label><input type="checkbox" id="Inputfield_checkbox" name="checkbox" value="1"><span class="pw-no-select">Checkbox</span></label></div>
+				</div><div class="Inputfield Inputfield_number ui-widget InputfieldInteger InputfieldStateShowIf" data-show-if="checkbox=1" id="wrap_Inputfield_number" style="display: none;"><label class="ui-widget-header" for="Inputfield_number">Number<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content"><input id="Inputfield_number" name="number" type="number" size="10" disabled="" placeholder="try 10-149"></div>
+			</div><div class="Inputfield Inputfield_is_this_your_age ui-widget InputfieldCheckbox InputfieldStateShowIf" data-show-if="number&gt;=10,number&lt;150" id="wrap_Inputfield_is_this_your_age" style="display: none;">
+				<label class="InputfieldHeader InputfieldHeaderHidden ui-widget-header"><span>Is this your age?<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></span></label><div class="ui-widget-content">
+					<label><input type="checkbox" id="Inputfield_is_this_your_age" name="is_this_your_age" value="1" disabled=""><span class="pw-no-select">Is this your age?</span></label></div>
+				</div>
+			</div>
+		</div>
+	</div><div class="Inputfield Inputfield_internet_accounts ui-widget InputfieldFieldset" id="Inputfield_internet_accounts"><label class="ui-widget-header" for="">Internet Accounts<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content"><div class="Inputfields"><div class="Inputfield Inputfield_username ui-widget InputfieldText" id="wrap_Inputfield_username"><label class="ui-widget-header" for="Inputfield_username">Username<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+		<input id="Inputfield_username" class="InputfieldMaxWidth" name="username" type="text" maxlength="2048" placeholder="try starting with an @-sign…"></div>
+	</div><div class="Inputfield Inputfield_are_you_using_this_username_on_twitter ui-widget InputfieldCheckbox InputfieldStateShowIf" data-show-if="username~=^@[a-zA-Z_]+" id="wrap_Inputfield_are_you_using_this_username_on_twitter" style="display: none;">
+		<label class="InputfieldHeader InputfieldHeaderHidden ui-widget-header"><span>Are you using this username on Twitter?<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></span></label><div class="ui-widget-content">
+			<label><input type="checkbox" id="Inputfield_are_you_using_this_username_on_twitter" name="are_you_using_this_username_on_twitter" value="1" disabled=""><span class="pw-no-select">Are you using this username on Twitter?</span></label></div>
+		</div><div class="Inputfield Inputfield_e_mail_address ui-widget InputfieldEmail" id="wrap_Inputfield_e_mail_address"><label class="ui-widget-header" for="Inputfield_e_mail_address">E-Mail Address<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+			<input id="Inputfield_e_mail_address" name="e_mail_address" class="InputfieldMaxWidth" type="email" maxlength="512" placeholder="try entering an address with @gmail.com…"></div>
+		</div><div class="Inputfield Inputfield_why_are_you_using_gmail ui-widget InputfieldTextarea InputfieldStateShowIf" data-show-if="e_mail_address*=@gmail.com" id="wrap_Inputfield_why_are_you_using_gmail" style="display: none;"><label class="ui-widget-header" for="Inputfield_why_are_you_using_gmail">Why are you using Gmail?<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+			<textarea id="Inputfield_why_are_you_using_gmail" class="InputfieldMaxWidth" name="why_are_you_using_gmail" maxlength="8192" rows="5" disabled=""></textarea></div>
+		</div>
+	</div>
+	</div>
+	</div><div class="Inputfield Inputfield_select ui-widget InputfieldSelect" id="wrap_Inputfield_select"><label class="ui-widget-header" for="Inputfield_select">Select<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+	<select id="Inputfield_select" name="select"><option value="">&nbsp;</option>
+		<option selected="selected" value="Edge">Edge</option>
+		<option value="FireFox">FireFox</option>
+		<option value="Chrome">Chrome</option>
+		<option value="Opera">Opera</option>
+		<option value="Safari">Safari</option>
+		<option value="Other…">Other…</option>
+	</select></div>
+	</div><div class="Inputfield Inputfield_other ui-widget InputfieldText InputfieldStateShowIf" data-show-if="select=Other…" id="wrap_Inputfield_other" style="display: none;"><label class="ui-widget-header" for="Inputfield_other">Other<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+		<input id="Inputfield_other" class="InputfieldMaxWidth" name="other" type="text" maxlength="2048" disabled=""></div>
+	</div>
+	</div>
+	</div>
+	</form>
+	</main>
+	
+	<footer>
+		<p><a href="https://github.com/addpixel/Fieldwire/archive/master.zip">Download ZIP</a> or <a href="https://github.com/addpixel/Fieldwire">Fork me on GitHib</a></p>
+		<p>Made by <a href="https://twitter.com/pircherflorian">@pircherflorian</a></p>
+	</footer>
+	
+	<script src="jquery-2.1.4.min.js" charset="utf-8"></script>
+	<script src="fieldwire.js" charset="utf-8"></script>
+</html>

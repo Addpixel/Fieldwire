@@ -20,7 +20,7 @@
 	// v1: String specified in the Processwire backend.
 	// 
 	// returns: bool: `true` if the field with the value `v0` should be visible.
-	function evaluateOperatorForValues(operator, v0, v1) {
+	function evaluateOperatorWithValues(operator, v0, v1) {
 		switch (operator) {
 		case '=': // is equal to
 			return v0 == v1;
@@ -40,26 +40,44 @@
 		case '*=': // contains substring
 			return v0.indexOf(v1) !== -1;
 		default:
-			console.error('The operator “'+operator+'” is not implemented in evaluateOperatorForValues().');
+			console.error('The operator “'+operator+'” is not implemented in evaluateOperatorWithValues().');
 		}
 	}
 	
-	// Returns a value based on an HTML DOM object.
-	function comparableValueFromDOMObject(object) {
+	// Returns a value based on an field.
+	function comparableValueForField(field) {
+		var object = field.input;
+		var value;
+		
 		if (object.tagName === 'SELECT') {
 			// <select>: value of selected option
-			return object.options[object.selectedIndex].value;
+			value = object.options[object.selectedIndex].value || '';
 		} else if (object.tagName === 'INPUT' && object.type === 'checkbox') {
 			// <input type=checkbox>: 1 for checked, 0 for unchecked
-			return object.checked ? '1' : '0';
+			value = object.checked ? '1' : '0';
 		} else if (object.tagName === 'INPUT' && object.type === 'radio') {
 			// <input type=radio>: value of the selected input or ''
 			var checked = document.querySelector('input[name='+object.name+']:checked');
-			return checked ? checked.value : '';
+			value = checked ? checked.value : '';
 		} else {
 			// <input>, <textarea>, etc.: value of the object
-			return object.value;
+			value = object.value || '';
 		}
+		
+		// Add your own modifier here!
+		switch (field.conditions.modifier) {
+		case 'lowercase':
+			value = value.toLowerCase();
+			break;
+		case 'uppercase':
+			value = value.toUpperCase();
+			break;
+		case 'length':
+			value = value.length;
+			break;
+		}
+		
+		return value;
 	}
 	
 	// Applies all conditions of a field to that field. This results in either
@@ -75,19 +93,23 @@
 			var ref = struct[condition.ref];
 			
 			show &= ref.visible;
-			show &= evaluateOperatorForValues(
+			show &= evaluateOperatorWithValues(
 				condition.operator,
-				comparableValueFromDOMObject(ref.input),
+				comparableValueForField(ref),
 				condition.value
 			);
 		}
 		
+		var $wrapper = $(field.wrapper);
+		
 		if (show) {
-			$(field.wrapper)[(usesAnimation) ? 'slideDown' : 'show']();
+			$wrapper[(usesAnimation) ? 'slideDown' : 'show']();
+			$wrapper.removeClass('fieldwire-hidden');
 			field.$inputs.prop('disabled', false);
 			field.visible = true;
 		} else {
-			$(field.wrapper)[(usesAnimation) ? 'slideUp' : 'hide']();
+			$wrapper[(usesAnimation) ? 'slideUp' : 'hide']();
+			$wrapper.addClass('fieldwire-hidden');
 			field.$inputs.prop('disabled', true);
 			field.visible = false;
 		}
@@ -139,9 +161,9 @@
 	
 	// Add the dependencies to `struct` as well as the conditions.
 	$fields.each(function() {
-		// example: showIf: 'key=value,age>18'
+		// example: 'key=value,age>18'
 		var showIf = struct[this.id].showIf;
-		// example: rawConditions: ['key=value', 'age>18']
+		// example: ["key=value", "age>18"]
 		var rawConditions = showIf.split(',');
 		var conditions = [];
 		
@@ -162,9 +184,11 @@
 				continue;
 			}
 			
+			// example: ["fieldname", "value"] or ["fieldname.count", "value"]
 			var splits = rawCondition.split(operator);
-			var fieldname = splits[0];
-			var value = splits[1].replace(/'?(.*)'/, '$1');
+			// example: ["fieldname"] or ["fieldname", "count"]
+			var lhs = splits[0].split('.');
+			var fieldname = lhs[0].trim();
 			
 			conditions.push({
 				// id of the filed this condition depends on (v0)
@@ -172,7 +196,8 @@
 				// the operator used to compare the value of `ref` to `value`
 				operator: operator,
 				// the comparison-value defined in the Processwire backend (v1)
-				value: value
+				value: splits[1].replace(/^\s*'?(.*)'\s*$/, '$1'),
+				modifier: lhs[1] || null
 			});
 			
 			// add this field as dependent to `conditions.ref`
