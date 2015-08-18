@@ -2,7 +2,7 @@
 <html>
 	<meta charset="utf-8">
 	<title>Fieldwire – Conditional Input-Fields for Processwire Frontend without jQuery UI</title>
-	<link rel="stylesheet" href="demo-page-assets/styles.css" type="text/css">
+	<link rel="stylesheet" href="gh-pages-assets/styles.css" type="text/css">
 	
 	<header>
 		<hgroup>
@@ -17,19 +17,19 @@
 		<p>Fieldwire is a replacement for <a href="http://processwire.com/api/selectors/inputfield-dependencies/" title="Inputfield Dependencies">Processwires Inputfield Dependencies</a>. It supports all <a href="http://processwire.com/api/selectors/inputfield-dependencies/#operators">comparison-operators used by Processwire</a> (<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>%=</code> and <code>*=</code>). Adding custom operators to Fieldwire couldn’t be easier and so I’ve already added the <code>~=</code> operator (left hand side matches a regular expression).</p>
 	
 		<figure>
-			<img src="demo-page-assets/operators.png" width="526" height="29" alt="var operators = [&#x27;=&#x27;, &#x27;!=&#x27;, …">
+			<img src="gh-pages-assets/operators.png" width="526" height="29" alt="var operators = [&#x27;=&#x27;, &#x27;!=&#x27;, …">
 			<figcaption>First add your operator to this array …</figcaption>
 		</figure>
 	
 		<figure>
-			<img src="demo-page-assets/comparison-function.png" width="572" height="181" alt="function evaluateOperatorWithValues(operator, v0, v1) { switch (operator) { case '=': return v0 == v1; …">
+			<img src="gh-pages-assets/comparison-function.png" width="572" height="181" alt="function evaluateOperatorWithValues(operator, v0, v1) { switch (operator) { case '=': return v0 == v1; …">
 			<figcaption>… than implement it in <code>evaluateOperatorWithValues</code></figcaption>
 		</figure>
 	
 		<p>Fieldwire also introduces field modifiers which transform the value of a field. Modifiers are written using the dot-notation (<code>fieldname.modifiername</code>). Currently Fieldwire offers the <code>lowercase</code>, <code>uppercase</code> and the <code>length</code> modifiers and you can add your own modifiers with just two lines of code.</p>
 	
 		<figure>
-			<img src="demo-page-assets/modifiers.png" width="301" height="220" alt="/* Add your own modifier here! */ switch (field.conditions.modifier) { case 'lowercase': value = value.toLowerCase(); …">
+			<img src="gh-pages-assets/modifiers.png" width="301" height="220" alt="/* Add your own modifier here! */ switch (field.conditions.modifier) { case 'lowercase': value = value.toLowerCase(); …">
 			<figcaption>Search for this snippet in fieldwire.js and add your own modifiers.</figcaption>
 		</figure>
 	
