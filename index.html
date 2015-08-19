@@ -3,10 +3,11 @@
 	<meta charset="utf-8">
 	<title>Fieldwire – Conditional Input-Fields for Processwire Frontend without jQuery UI</title>
 	<link rel="stylesheet" href="gh-pages-assets/styles.css" type="text/css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merriweather+Sans:400,800italic" type="text/css">
 	
 	<header>
 		<hgroup>
-			<h1>Fieldwire</h1>
+			<h1>Field<span class="wire">wire</span><span class="caret"></span></h1>
 			<h2>Conditional Input-Fields for Processwire Frontend without&nbsp;jQuery&nbsp;UI</h2>
 		</hgroup>
 	</header>
@@ -14,31 +15,14 @@
 	<a href="https://github.com/addpixel/Fieldwire" id="ribbon">Fieldwire on GitHib</a>
 	
 	<main>
-		<p>Fieldwire is a replacement for <a href="http://processwire.com/api/selectors/inputfield-dependencies/" title="Inputfield Dependencies">Processwires Inputfield Dependencies</a>. It supports all <a href="http://processwire.com/api/selectors/inputfield-dependencies/#operators">comparison-operators used by Processwire</a> (<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>%=</code> and <code>*=</code>). Adding custom operators to Fieldwire couldn’t be easier and so I’ve already added the <code>~=</code> operator (left hand side matches a regular expression).</p>
-	
-		<figure>
-			<img src="gh-pages-assets/operators.png" width="526" height="29" alt="var operators = [&#x27;=&#x27;, &#x27;!=&#x27;, …">
-			<figcaption>First add your operator to this array …</figcaption>
-		</figure>
-	
-		<figure>
-			<img src="gh-pages-assets/comparison-function.png" width="572" height="181" alt="function evaluateOperatorWithValues(operator, v0, v1) { switch (operator) { case '=': return v0 == v1; …">
-			<figcaption>… than implement it in <code>evaluateOperatorWithValues</code></figcaption>
-		</figure>
-	
-		<p>Fieldwire also introduces field modifiers which transform the value of a field. Modifiers are written using the dot-notation (<code>fieldname.modifiername</code>). Currently Fieldwire offers the <code>lowercase</code>, <code>uppercase</code> and the <code>length</code> modifiers and you can add your own modifiers with just two lines of code.</p>
-	
-		<figure>
-			<img src="gh-pages-assets/modifiers.png" width="301" height="220" alt="/* Add your own modifier here! */ switch (field.conditions.modifier) { case 'lowercase': value = value.toLowerCase(); …">
-			<figcaption>Search for this snippet in fieldwire.js and add your own modifiers.</figcaption>
-		</figure>
-	
+		<p>Fieldwire is a replacement for <a href="http://processwire.com/api/selectors/inputfield-dependencies/" title="Inputfield Dependencies">Processwires Inputfield Dependencies</a>. It supports all <a href="http://processwire.com/api/selectors/inputfield-dependencies/#operators">comparison-operators used by Processwire</a> (<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>%=</code> and <code>*=</code>).</p>
+		
 		<h3>Examples</h3>
 <pre><code>age<span class="operator">&gt;=</span>18
 email<span class="operator">*=</span>@gmail.com
 textfield<span class="operator">!=</span>&#x27;&#x27;
-file_input<span class="operator">~=</span>^.*\.(jpg|jpeg|png|gif)$
-username.length<span class="operator">&gt;</span>15</code></pre>
+checkbox<span class="operator">=</span>1
+price<span class="operator">&gt;=</span>10,price<span class="operator">&lt;</span>100</code></pre>
 	
 		<h3>Live Demo</h3>
 	
@@ -68,12 +52,7 @@ username.length<span class="operator">&gt;</span>15</code></pre>
 				</div>
 			</div>
 		</div>
-	</div><div class="Inputfield Inputfield_internet_accounts ui-widget InputfieldFieldset" id="Inputfield_internet_accounts"><label class="ui-widget-header" for="">Internet Accounts<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content"><div class="Inputfields"><div class="Inputfield Inputfield_username ui-widget InputfieldText" id="wrap_Inputfield_username"><label class="ui-widget-header" for="Inputfield_username">Username<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
-		<input id="Inputfield_username" class="InputfieldMaxWidth" name="username" type="text" maxlength="2048" placeholder="try starting with an @-sign…"></div>
-	</div><div class="Inputfield Inputfield_are_you_using_this_username_on_twitter ui-widget InputfieldCheckbox InputfieldStateShowIf" data-show-if="username~=^@[a-zA-Z_]+" id="wrap_Inputfield_are_you_using_this_username_on_twitter" style="display: none;">
-		<label class="InputfieldHeader InputfieldHeaderHidden ui-widget-header"><span>Are you using this username on Twitter?<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></span></label><div class="ui-widget-content">
-			<label><input type="checkbox" id="Inputfield_are_you_using_this_username_on_twitter" name="are_you_using_this_username_on_twitter" value="1" disabled=""><span class="pw-no-select">Are you using this username on Twitter?</span></label></div>
-		</div><div class="Inputfield Inputfield_e_mail_address ui-widget InputfieldEmail" id="wrap_Inputfield_e_mail_address"><label class="ui-widget-header" for="Inputfield_e_mail_address">E-Mail Address<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
+	</div><div class="Inputfield Inputfield_internet_accounts ui-widget InputfieldFieldset" id="Inputfield_internet_accounts"><label class="ui-widget-header" for="">Internet Accounts<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content"><div class="Inputfields"><div class="Inputfield Inputfield_e_mail_address ui-widget InputfieldEmail" id="wrap_Inputfield_e_mail_address"><label class="ui-widget-header" for="Inputfield_e_mail_address">E-Mail Address<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
 			<input id="Inputfield_e_mail_address" name="e_mail_address" class="InputfieldMaxWidth" type="email" maxlength="512" placeholder="try entering an address with @gmail.com…"></div>
 		</div><div class="Inputfield Inputfield_why_are_you_using_gmail ui-widget InputfieldTextarea InputfieldStateShowIf" data-show-if="e_mail_address*=@gmail.com" id="wrap_Inputfield_why_are_you_using_gmail" style="display: none;"><label class="ui-widget-header" for="Inputfield_why_are_you_using_gmail">Why are you using Gmail?<i class="toggle-icon fa fa-angle-down" data-to="fa-angle-down fa-angle-right"></i></label><div class="ui-widget-content">
 			<textarea id="Inputfield_why_are_you_using_gmail" class="InputfieldMaxWidth" name="why_are_you_using_gmail" maxlength="8192" rows="5" disabled=""></textarea></div>
@@ -95,11 +74,31 @@ username.length<span class="operator">&gt;</span>15</code></pre>
 	</div>
 	</div>
 	</form>
+	
+	<h3>Support</h3>
+	
+	<p>Fieldwire depends on <a href="http://jquery.com">jQuery</a> (2.x.x or 1.x.x) but eliminates the need of jQuery UI. Fieldwire works with the following FormBuilder field types.</p>
+	<ul>
+		<li>Fieldset</li>
+		<li>Text</li>
+		<li>Textarea</li>
+		<li>Radio Buttons</li>
+		<li>Checkbox</li>
+		<li>Select</li>
+		<li>File</li>
+		<li>E-Mail</li>
+		<li>URL</li>
+		<li>Integer</li>
+		<li>Float</li>
+		<li>Datetime</li>
+	</ul>
+	
+	<p>Other field-types may work, but are not (yet) officially supported by Fieldwire.</p>
 	</main>
 	
 	<footer>
-		<p><a href="https://github.com/addpixel/Fieldwire/archive/master.zip">Download ZIP</a> or <a href="https://github.com/addpixel/Fieldwire">Fork me on GitHib</a></p>
-		<p>Made by <a href="https://twitter.com/pircherflorian">@pircherflorian</a></p>
+		<p><a href="https://github.com/addpixel/Fieldwire/archive/master.zip" class="button">Download ZIP</a> and <a href="https://github.com/addpixel/Fieldwire" class="button">Fork me on GitHib</a></p>
+		<p>Made with <span class="missing-character" data-upper="27" data-lower="64">love</span> by <a href="https://twitter.com/pircherflorian">@pircherflorian</a>.</p>
 	</footer>
 	
 	<script src="jquery-2.1.4.min.js" charset="utf-8"></script>
