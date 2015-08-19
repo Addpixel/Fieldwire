@@ -6,6 +6,8 @@ Conditional Input-Fields for [Processwire](https://github.com/ryancramerdesign/P
 
 Fieldwire is a replacement for [Processwires Inputfield Dependencies](http://processwire.com/api/selectors/inputfield-dependencies/ "Inputfield Dependencies"). It supports all [comparison-operators used by Processwire](http://processwire.com/api/selectors/inputfield-dependencies/#operators) (`=`, `!=`, `>`, `<`, `>=`, `<=`, `%=` and `*=`).
 
+![](https://rawgit.com/addpixel/Fieldwire/master/fieldwire_in_action.gif)
+
 ## Examples
 
 ```
