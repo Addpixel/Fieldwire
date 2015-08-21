@@ -59,11 +59,11 @@ h1 .wire {
 	height: 1.1em;
 	background-color: #000;
 	bottom: -0.12em;
-    animation: blink 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    -webkit-animation: blink 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+	animation: blink 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+	-webkit-animation: blink 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
 
-@keyframes blink {  
+@keyframes blink {	
 	0% { opacity: 1; }
 	50% { opacity: 0; }
 	100% { opacity: 1; }
