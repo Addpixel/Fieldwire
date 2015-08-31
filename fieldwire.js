@@ -4,7 +4,7 @@
 	// the array, an operator may not be containd by another that comes before
 	// it. Negative example: ['=#=', '#=']
 	var operators = ['=', '!=', '>', '<', '>=', '<=', '%=', '*='];
-	// Classname of a input-field.
+	// All Processwire-FormBuilder input-fields as jQuery array.
 	var $fields = $('.Inputfield');
 	
 	// Structure this script uses to connect the field-relationships.
