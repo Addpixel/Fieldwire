@@ -3,7 +3,7 @@
 	// Please note that operators have to get more specific towards the end of
 	// the array, an operator may not be containd by another that comes before
 	// it. Negative example: ['=#=', '#=']
-	var operators = ['=', '!=', '>', '<', '>=', '<=', '%=', '*=', '~='];
+	var operators = ['=', '!=', '>', '<', '>=', '<=', '%=', '*='];
 	// Classname of a input-field.
 	var $fields = $('.Inputfield');
 	
@@ -26,8 +26,6 @@
 			return v0 == v1;
 		case '!=': // is not equal to
 			return v0 != v1;
-		case '~=': // matches the regular expression
-			return (new RegExp(v1)).test(v0);
 		case '>': // is greater than
 			return parseFloat(v0) > parseFloat(v1);
 		case '<': // is less than
