@@ -62,19 +62,6 @@
 			value = object.value || '';
 		}
 		
-		// Add your own modifier here!
-		switch (field.conditions.modifier) {
-		case 'lowercase':
-			value = value.toLowerCase();
-			break;
-		case 'uppercase':
-			value = value.toUpperCase();
-			break;
-		case 'length':
-			value = value.length;
-			break;
-		}
-		
 		return value;
 	}
 	
