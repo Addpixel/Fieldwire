@@ -20,7 +20,7 @@ price>=10,price<100
 
 ## Support
 
-Fieldwire depends on [jQuery](http://jquery.com) (2.x.x or 1.x.x) but eliminates the need of jQuery UI. Fieldwire works with the following FormBuilder field types.
+Fieldwire depends on [jQuery](http://jquery.com) (2.x.x or 1.x.x) but eliminates the need for jQuery UI. Fieldwire works with the following FormBuilder field types.
 
 *   Fieldset
 *   Text
