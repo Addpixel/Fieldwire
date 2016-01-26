@@ -134,7 +134,7 @@
 			// fields are – by default – visible
 			visible: true,
 			// the condition as a string, empty string for no condition
-			showIf: this.dataset.showIf || ''
+			showIf: $(this).data('showIf') || ''
 		};
 		
 		// listen for opportunities to reevaluate all dependent fields
