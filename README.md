@@ -22,17 +22,17 @@ price>=10,price<100
 
 Fieldwire depends on [jQuery](http://jquery.com) (2.x.x or 1.x.x) but eliminates the need for jQuery UI. Fieldwire works with the following FormBuilder field types.
 
-*   Fieldset
-*   Text
-*   Textarea
-*   Radio Buttons
-*   Checkbox
-*   Select
-*   File
-*   E-Mail
-*   URL
-*   Integer
-*   Float
-*   Datetime
+- [X] Fieldset
+- [X] Text
+- [X] Textarea
+- [X] Radio Buttons
+- [X] Checkbox
+- [X] Select
+- [X] File
+- [X] E-Mail
+- [X] URL
+- [X] Integer
+- [X] Float
+- [X] Datetime
 
 Other field-types may work, but are not (yet) officially supported by Fieldwire.
