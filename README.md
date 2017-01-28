@@ -4,7 +4,7 @@
 
 Conditional Input-Fields for [Processwire](https://github.com/ryancramerdesign/ProcessWire) Frontend – ***without jQuery UI***.
 
-Fieldwire is a replacement for [Processwires Inputfield Dependencies](http://processwire.com/api/selectors/inputfield-dependencies/ "Inputfield Dependencies"). It supports all [comparison-operators used by Processwire](http://processwire.com/api/selectors/inputfield-dependencies/#operators) (`=`, `!=`, `>`, `<`, `>=`, `<=`, `%=` and `*=`).
+Fieldwire is a replacement for Processwire’s [Inputfield Dependencies](http://processwire.com/api/selectors/inputfield-dependencies/ "Inputfield Dependencies"). It supports all [comparison operators used by Processwire](http://processwire.com/api/selectors/inputfield-dependencies/#operators) (`=`, `!=`, `>`, `<`, `>=`, `<=`, `%=` and `*=`).
 
 ![](https://rawgit.com/addpixel/Fieldwire/master/fieldwire_in_action.gif)
 
@@ -20,7 +20,7 @@ price>=10,price<100
 
 ## Support
 
-Fieldwire depends on [jQuery](http://jquery.com) (2.x.x or 1.x.x) but eliminates the need for jQuery UI. Fieldwire works with the following FormBuilder field types.
+Fieldwire depends on [jQuery](http://jquery.com) but eliminates the need for jQuery UI. Fieldwire works with the following FormBuilder field types:
 
 - [X] Fieldset
 - [X] Text
@@ -34,5 +34,3 @@ Fieldwire depends on [jQuery](http://jquery.com) (2.x.x or 1.x.x) but eliminates
 - [X] Integer
 - [X] Float
 - [X] Datetime
-
-Other field-types may work, but are not (yet) officially supported by Fieldwire.
